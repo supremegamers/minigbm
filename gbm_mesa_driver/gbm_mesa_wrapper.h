@@ -19,6 +19,6 @@ void *gbm_import(void *gbm_ptr, int buf_fd, int width, int height, int stride, i
 
 void gbm_free(void *gbm_bo_ptr);
 
-void gbm_map(void *gbm_bo_ptr, int w, int h, void **addr, void **map_data);
+void gbm_map(void *gbm_bo_ptr, void **addr, void **map_data);
 
 void gbm_unmap(void *gbm_bo_ptr, void *map_data);

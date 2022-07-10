@@ -117,13 +117,13 @@ void gbm_free(void *gbm_bo_ptr) {
 	gbm_bo_destroy(bo);
 }
 
-void gbm_map(void *gbm_bo_ptr, int w, int h, void **addr, void **map_data) {
+void gbm_map(void *gbm_bo_ptr, void **addr, void **map_data) {
 	int flags = GBM_BO_TRANSFER_READ | GBM_BO_TRANSFER_WRITE;
 
 	auto *bo = (gbm_bo *)gbm_bo_ptr;
 
 	uint32_t stride = 0;
-	*addr = gbm_bo_map(bo, 0, 0, w, h, flags, &stride, map_data);
+	*addr = gbm_bo_map(bo, 0, 0, gbm_bo_get_width(bo), gbm_bo_get_height(bo), flags, &stride, map_data);
 }
 
 void gbm_unmap(void *gbm_bo_ptr, void *map_data) {

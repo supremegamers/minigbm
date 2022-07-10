@@ -429,7 +429,7 @@ void *gbm_mesa_bo_map(struct bo *bo, struct vma *vma, size_t plane, uint32_t map
 		s_height = 1;
 	}
 
-	gbm_map(priv->gbm_bo, s_width, s_height, &buf, &vma->priv);
+	gbm_map(priv->gbm_bo, &buf, &vma->priv);
 
 	return buf;
 }
